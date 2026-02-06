@@ -6,7 +6,7 @@ let io: Server
 export const initSocket = (server: http.Server) => {
   io = new Server(server, {
     cors: {
-      origin: ["https://raftlabs-frontend.vercel.app"],
+      origin: ["https://raftlabs-frontend.vercel.app", "http://localhost:3000"],
     },
   })
 
