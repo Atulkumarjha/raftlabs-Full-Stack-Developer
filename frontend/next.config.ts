@@ -6,9 +6,8 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3001',
+        protocol: 'https',
+        hostname: 'raftlabs-full-stack-developer.onrender.com',
         pathname: '/public/**',
       },
     ],

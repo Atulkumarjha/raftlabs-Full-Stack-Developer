@@ -10,7 +10,11 @@ import { swaggerSpec } from "./docs/swagger"
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: ["https://raftlabs-frontend.vercel.app"],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  credentials: true,
+}));
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, '../public')));
 
