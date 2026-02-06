@@ -1,17 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend - Food Ordering Application
 
-## Getting Started
+Next.js 16 application with TypeScript, real-time order tracking, and responsive design.
 
-First, run the development server:
+## 🚀 Deployment
 
+**Live App**: https://raftlabs-frontend.vercel.app/
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16 (with Turbopack)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: React Context API
+- **Real-time**: Socket.IO Client
+- **HTTP Client**: Fetch API
+
+## 📁 Project Structure
+
+```
+src/
+├── app/              # Next.js app directory
+│   ├── page.tsx      # Home/Menu page
+│   ├── checkout/     # Checkout page
+│   └── order/[id]/   # Order tracking page
+├── components/       # Reusable components
+│   ├── MenuCard.tsx
+│   └── CartSummary.tsx
+├── context/          # React Context
+│   └── cart.context.tsx
+├── services/         # API services
+│   ├── menu.service.ts
+│   └── order.service.ts
+└── config/           # Configuration
+    └── api.ts        # API URL configuration
+```
+
+## 🚀 Getting Started
+
+### Install Dependencies
+```bash
+npm install
+```
+
+### Environment Setup
+```bash
+cp .env.example .env.local
+```
+
+Edit `.env.local`:
+```
+NEXT_PUBLIC_API_URL=http://localhost:3001
+```
+
+### Development Server
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
