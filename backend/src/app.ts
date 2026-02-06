@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import menuRoutes from "./routes/menu.routes"
 import orderRoutes from "./routes/order.routes"
@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, '../public')));
 
-app.get("/health", (_req,res) => {
+app.get("/health", (_req: Request, res: Response) => {
 res.status(200).json({ status: "ok" })
 })
 
