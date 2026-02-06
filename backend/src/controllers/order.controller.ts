@@ -43,6 +43,22 @@ export const createOrder = (req: Request, res: Response) => {
         status: newOrder.status,
       })
     }, 10000)
+
+    setTimeout(() => {
+      newOrder.status = "AT_YOUR_DOORSTEP"
+      io.emit("orderStatusUpdated", {
+        orderId: newOrder.id,
+        status: newOrder.status,
+      })
+    }, 15000)
+
+    setTimeout(() => {
+      newOrder.status = "DELIVERED"
+      io.emit("orderStatusUpdated", {
+        orderId: newOrder.id,
+        status: newOrder.status,
+      })
+    }, 20000)
   } catch (error) {
     // Socket.io not initialized (e.g., in test environment)
     // Status updates will be handled manually via API
@@ -67,7 +83,7 @@ export const updateOrderStatus = (req: Request, res: Response) => {
   const { id } = req.params
   const { status } = req.body
 
-  const validStatuses = ["RECEIVED", "PREPARING", "OUT_FOR_DELIVERY"]
+  const validStatuses = ["RECEIVED", "PREPARING", "OUT_FOR_DELIVERY", "AT_YOUR_DOORSTEP", "DELIVERED"]
 
   if (!validStatuses.includes(status)) {
     return res.status(400).json({ message: "Invalid order status" })

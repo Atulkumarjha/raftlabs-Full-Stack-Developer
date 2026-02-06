@@ -2,6 +2,8 @@ export type OrderStatus =
   | "RECEIVED"
   | "PREPARING"
   | "OUT_FOR_DELIVERY"
+  | "AT_YOUR_DOORSTEP"
+  | "DELIVERED"
 
 export interface OrderItem {
   menuItemId: string

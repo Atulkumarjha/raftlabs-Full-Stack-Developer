@@ -92,7 +92,7 @@ router.get("/:id", getOrderById)
  *             properties:
  *               status:
  *                 type: string
- *                 enum: [RECEIVED, PREPARING, OUT_FOR_DELIVERY]
+ *                 enum: [RECEIVED, PREPARING, OUT_FOR_DELIVERY, AT_YOUR_DOORSTEP, DELIVERED]
  *     responses:
  *       200:
  *         description: Status updated successfully

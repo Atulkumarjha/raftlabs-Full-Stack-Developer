@@ -11,6 +11,8 @@ const STATUS_LABELS: Record<string, string> = {
   RECEIVED: "Order Received",
   PREPARING: "Preparing Your Food",
   OUT_FOR_DELIVERY: "Out for Delivery",
+  AT_YOUR_DOORSTEP: "At Your Doorstep",
+  DELIVERED: "Delivered",
 }
 
 export default function OrderStatusPage() {
@@ -44,8 +46,8 @@ export default function OrderStatusPage() {
   }, [id])
 
   useEffect(() => {
-    // Only run countdown for RECEIVED and PREPARING statuses
-    if (status === "RECEIVED" || status === "PREPARING") {
+    // Run countdown for all statuses except DELIVERED
+    if (status !== "DELIVERED" && status !== "") {
       const timer = setInterval(() => {
         setCountdown((prev) => {
           if (prev <= 1) {
@@ -72,9 +74,15 @@ export default function OrderStatusPage() {
           {STATUS_LABELS[status] || status}
         </p>
 
-        {(status === "RECEIVED" || status === "PREPARING") && (
+        {status !== "DELIVERED" && status !== "" && (
           <p className="text-sm text-[#39ff14] opacity-80 mb-2">
             Status update in: {countdown}s
+          </p>
+        )}
+
+        {status === "DELIVERED" && (
+          <p className="text-sm text-[#39ff14] opacity-80 mb-2">
+            ✓ Order Complete!
           </p>
         )}
 
