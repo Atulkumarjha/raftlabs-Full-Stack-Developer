@@ -4,8 +4,9 @@ import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import { fetchOrderById } from "@/services/order.service"
 import { io } from "socket.io-client"
+import { API_URL } from "@/config/api"
 
-const socket = io("http://localhost:3001")
+const socket = io(API_URL)
 
 const STATUS_LABELS: Record<string, string> = {
   RECEIVED: "Order Received",

@@ -1,5 +1,7 @@
+import { API_URL } from "@/config/api"
+
 export const fetchOrderById = async (id: string) => {
-  const res = await fetch(`http://localhost:3001/api/orders/${id}`)
+  const res = await fetch(`${API_URL}/api/orders/${id}`)
 
   if (!res.ok) {
     throw new Error("Order not found")
@@ -12,7 +14,7 @@ export const placeOrder = async (orderData: {
   items: { menuItemId: string; quantity: number }[]
   customer: { name: string; address: string; phone: string }
 }) => {
-  const res = await fetch("http://localhost:3001/api/orders", {
+  const res = await fetch(`${API_URL}/api/orders`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

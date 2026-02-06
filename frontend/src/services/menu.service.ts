@@ -6,8 +6,10 @@ export interface MenuItem {
   imageUrl: string
 }
 
+import { API_URL } from "@/config/api"
+
 export const fetchMenu = async (): Promise<MenuItem[]> => {
-  const res = await fetch("http://localhost:3001/api/menu")
+  const res = await fetch(`${API_URL}/api/menu`)
 
   if (!res.ok) {
     throw new Error("Failed to fetch menu")
